@@ -1,7 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GamePageComponent } from './game-page/game-page.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { ReviewPageComponent } from './game-page/review-page/review-page.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'game-page', component: GamePageComponent },
+  { path: 'review-page', component: ReviewPageComponent },
+  { path: 'main-page', component: MainPageComponent },
+  { path: 'register', component: RegisterComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,67 @@
+<div class="punteggio">HAI TOTALIZZATO {{ MovieServ.rating }} PUNTI</div>
+
+<pre *ngFor="let film of MovieServ.orderedMoviz">{{ film.id | json }} - {{ film. original_title | json}}</pre>
+
+<div class="recensione" [hidden]="isHide">
+  <form class="format" #data="ngForm" (ngSubmit)="onSubmit(data)">
+    
+    <ngb-rating [(rate)]="currentRate" ngModel name="rating"></ngb-rating>
+    <hr />
+    <pre>Rate: <b>{{currentRate}}</b></pre> 
+
+    <mat-form-field appearance="fill">
+      <mat-label>comment</mat-label>
+      <input matInput type="text" ngModel name="comment" required />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!data.valid"
+    >
+      SUBMITY
+    </button>
+  </form>
+</div>
+
+<div class="wrapper">
+  <div class="carta" *ngFor="let film of MovieServ.orderedMoviz">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+      </mat-card-header>
+      <img
+        mat-card-image
+        src="https://image.tmdb.org/t/p/w185/{{ film.poster_path }}"
+        width="400"
+        height="450"
+      />
+      <mat-card-title>{{ film.original_title }}</mat-card-title>
+      <mat-card-actions>
+        <button mat-button  (click)="onFavouriteSubmite(film.id)">FAVOURITE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<!-- <form class="format" #data="ngForm" (ngSubmit)="onSubmit(data)">
+  <mat-form-field appearance="fill">
+    <mat-label>rating</mat-label>
+    <input matInput type="text" name="rating" ngModel required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>comment</mat-label>
+    <input matInput type="text" ngModel name="comment" required />
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="!data.valid"
+  >
+    SUBMITY
+  </button>
+</form>
+ -->

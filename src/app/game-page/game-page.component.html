@@ -1,0 +1,29 @@
+
+<!--      <img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" alt="" srcset="">
+  -->
+<!--     <pre *ngFor="let film of movie">{{ film.release_date | json }} - {{ film. original_title | json}}</pre>
+    <div>----------------------</div>
+    <pre *ngFor="let film of orderedMovie">{{ film.release_date | json }} - {{ film. original_title | json}}</pre>
+    <div>----------------------</div>
+    <pre *ngFor="let film of MovieServ.orderedMoviz">{{ film.release_date | json }} - {{ film. original_title | json}}</pre> -->
+   <!--  <pre *ngFor="let mov of moviee"> {{ mov.original_title | json }}</pre>
+ -->
+
+<!--     <div  cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let movieee of movie" cdkDrag>
+        <img  src="https://image.tmdb.org/t/p/w185/{{movieee.poster_path}}" [alt]="movieee.title"> 
+      </div>
+      <button mat-raised-button color="primary" type="submit" (click)="checkResult()" >SUBMITY</button>
+    </div> -->
+
+    <div cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let movieee of movie" cdkDrag>
+        <img  src="https://image.tmdb.org/t/p/w185/{{movieee.poster_path}}" [alt]="movieee.title"> 
+      </div>
+    </div>
+    <button mat-raised-button color="primary" type="submit" (click)="checkResult()" >SUBMITY</button>
+    
+    
+
+    <!-- *cdkDragPreview -->
+
