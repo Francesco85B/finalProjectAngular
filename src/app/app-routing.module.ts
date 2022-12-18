@@ -7,7 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: MainPageComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'game-page', component: GamePageComponent },
   { path: 'review-page', component: ReviewPageComponent },
   { path: 'main-page', component: MainPageComponent },
