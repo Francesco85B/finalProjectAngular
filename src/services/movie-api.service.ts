@@ -9,7 +9,6 @@ export class MovieAPIService {
   // movie: MovieRootObject[] = [];
 
   orderedMoviz: MovieRootObject[] = [];
-  
   rating: number = 0;
   userNameLogged: string = '';
 

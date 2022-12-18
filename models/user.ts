@@ -24,3 +24,9 @@ export interface DatoToComment {
   user_id: number;
   movie_id: number
 }
+
+export interface ScoreInfo {
+  userId: number;
+  userName: string;
+  score: number
+}

@@ -5,6 +5,7 @@ import { MovieAPIService } from 'src/services/movie-api.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
+import { ScoreInfo } from 'models/user';
 
 
 @Component({
@@ -97,6 +98,13 @@ export class GamePageComponent implements OnInit {
       }
     }
 
-    //this.http.post()   INVIARE IL PUNTEGGIO A SPRING CON UNA PATCH
+    let scoreComp: ScoreInfo = {
+      userId: 3 ,
+      userName: this.MovieServ.userNameLogged,
+      score: this.MovieServ.rating
+
+    }
+
+    this.http.post<ScoreInfo>(`http://localhost:4567/score`, scoreComp).subscribe(()=> {console.log(scoreComp + 'HA FUNZIONATO')})   
   }
 }

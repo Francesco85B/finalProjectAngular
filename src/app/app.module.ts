@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './register/register.component';
+import { RankingComponent } from './ranking/ranking.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RegisterComponent } from './register/register.component';
     ReviewPageComponent,
     LoginComponent,
     RegisterComponent,
+    RankingComponent,
   ],
   imports: [
     BrowserModule,
