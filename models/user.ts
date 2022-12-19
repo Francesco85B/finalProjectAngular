@@ -30,3 +30,12 @@ export interface ScoreInfo {
   userName: string;
   score: number
 }
+
+export interface UserLocalSt {
+  id: number;
+  name: string;
+  surname: string;
+  email: string;
+  username: string;
+  score?: string;
+}

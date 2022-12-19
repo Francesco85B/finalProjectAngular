@@ -1,3 +1,5 @@
+import { UserLocalSt } from './../../../models/user';
+import { AuthService } from 'src/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { MovieRootObject } from 'models/movies';
@@ -5,7 +7,7 @@ import { MovieAPIService } from 'src/services/movie-api.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
-import { ScoreInfo } from 'models/user';
+import { ScoreInfo, User } from 'models/user';
 
 
 @Component({
@@ -15,11 +17,8 @@ import { ScoreInfo } from 'models/user';
 })
 export class GamePageComponent implements OnInit {
   
-  constructor(private http: HttpClient, protected MovieServ: MovieAPIService, private router: Router) {}
- 
-
-
-
+  constructor(private http: HttpClient, protected MovieServ: MovieAPIService, private router: Router, protected authServ: AuthService) {}
+  currentUser: Partial<UserLocalSt> = this.authServ.getCurrentUser();
 
   ngOnInit(): void {
     this.MovieServ.rating;
@@ -87,6 +86,7 @@ export class GamePageComponent implements OnInit {
   }
 
   checkResult(){
+
     
     console.log(this.MovieServ.userNameLogged)
     
@@ -99,8 +99,8 @@ export class GamePageComponent implements OnInit {
     }
 
     let scoreComp: ScoreInfo = {
-      userId: 3 ,
-      userName: this.MovieServ.userNameLogged,
+      userId: this.authServ.getCurrentUser().id,
+      userName: this.authServ.getCurrentUser().username,
       score: this.MovieServ.rating
 
     }
