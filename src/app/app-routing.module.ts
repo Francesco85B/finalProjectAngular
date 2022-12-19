@@ -5,6 +5,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { ReviewPageComponent } from './game-page/review-page/review-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { RankingComponent } from './ranking/ranking.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'review-page', component: ReviewPageComponent },
   { path: 'main-page', component: MainPageComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'ranking', component: RankingComponent },
 ];
 
 @NgModule({

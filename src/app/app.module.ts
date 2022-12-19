@@ -21,6 +21,8 @@ import { MatCardModule } from '@angular/material/card';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './register/register.component';
 import { RankingComponent } from './ranking/ranking.component';
+import { MatTableModule } from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { RankingComponent } from './ranking/ranking.component';
     FormsModule,
     MatCardModule,
     NgbRatingModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],
