@@ -24,12 +24,21 @@ export class LoginComponent implements OnInit {
     console.log(form.value.username)
     
     this.movieApiSer.userNameLogged = form.value.username;
-    console.log(this.movieApiSer.userNameLogged)
+    console.log(this.movieApiSer.userNameLogged);
+
+
+     form.control.markAllAsTouched();
 
     if (form.valid) {
-      this.authService.login(form.value).subscribe( {
-        next: () => this.router.navigate(['main-page'])
-        });
+
+      this.authService.login(form.value).subscribe({
+        next: (response) => {
+          console.log(response);
+
+          this.authService.saveUserInLocalStorage(response);
+          this.router.navigate(['main-page']);
+        }
+      })
     }
   }
 }
