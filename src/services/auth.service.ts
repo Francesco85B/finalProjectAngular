@@ -16,6 +16,7 @@ export class AuthService {
     console.log("auth service.ts", loginData);
 
     localStorage.setItem("user", JSON.stringify(loginData.username));
+    
 
     return this.http.post<Partial<LoginDTO>>(
       `${this.springBootUrl}/signIn`, loginData);
