@@ -5,6 +5,7 @@ import { MovieData } from 'models/movieData';
 import { MovieRootObject } from 'models/movies';
 import { Router } from '@angular/router';
 import { MovieAPIService } from 'src/services/movie-api.service';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -12,7 +13,8 @@ import { MovieAPIService } from 'src/services/movie-api.service';
 @Component({
   selector: 'app-review-page',
   templateUrl: './review-page.component.html',
-  styleUrls: ['./review-page.component.scss']
+  styleUrls: ['./review-page.component.scss'],
+  providers: [NgbModalConfig, NgbModal],
 })
 export class ReviewPageComponent implements OnInit, OnChanges {
 
@@ -21,14 +23,22 @@ export class ReviewPageComponent implements OnInit, OnChanges {
   movieID = 0;
   isHide = true;
 
-  onFavouriteSubmite(numID: number) {
+/*   onFavouriteSubmite(numID: number) {
     this.isHide = false;
     this.movieID = numID;
-  }
+  } */
   
 
-  constructor( protected MovieServ: MovieAPIService, private http: HttpClient, private router: Router) { }
+  constructor(config: NgbModalConfig, private modalService: NgbModal, protected MovieServ: MovieAPIService, private http: HttpClient, private router: Router) { 
+    config.backdrop = 'static';
+		config.keyboard = false;
+  }
 
+  open(content: any, numID:number) {
+		this.modalService.open(content);
+    this.movieID = numID;
+	}
+  
   ngOnChanges(changes: SimpleChanges): void {
     
   } 
